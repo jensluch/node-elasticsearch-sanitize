@@ -1,6 +1,8 @@
 node-elasticsearch-sanitize
 ===========================
 
+[![Circle CI](https://circleci.com/gh/lanetix/node-elasticsearch-sanitize.svg?style=svg)](https://circleci.com/gh/lanetix/node-elasticsearch-sanitize)
+
 Accepts an arbitrary string as input and escapes the ElasticSearch reserved characters:
 ```
 + - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ / AND OR NOT
@@ -11,7 +13,7 @@ Installation
 ------------
 
 ```bash
-npm install --save node-elasticsearch-sanitize
+npm install --save elasticsearch-sanitize
 ```
 
 Usage

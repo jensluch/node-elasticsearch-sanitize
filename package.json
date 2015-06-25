@@ -32,8 +32,5 @@
     "eslint-plugin-nodeca": "^1.0.3",
     "istanbul": "^0.3.15",
     "mocha": "^2.2.5"
-  },
-  "dependencies": {
-    "lodash": "^3.9.3"
   }
 }
