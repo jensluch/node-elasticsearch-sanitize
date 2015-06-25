@@ -1,5 +1,5 @@
 {
-  "name": "node-elasticsearch-sanitize",
+  "name": "elasticsearch-sanitize",
   "version": "1.0.0",
   "description": "Elastic Search String Sanitizer for Node",
   "main": "index.js",
