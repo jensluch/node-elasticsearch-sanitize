@@ -1,7 +1,11 @@
 node-elasticsearch-sanitize
 ===========================
 
-Accepts an arbitrary string as input and escapes the ElasticSearch reserved characters (`+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ / AND OR NOT`), returning a sanitized string which can be safely used in an ElasticSearch query_string query.
+Accepts an arbitrary string as input and escapes the ElasticSearch reserved characters:
+```
++ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ / AND OR NOT
+```
+Returns a sanitized string which can be safely used in an ElasticSearch query_string query.
 
 Installation
 ------------
