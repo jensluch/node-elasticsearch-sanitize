@@ -1,0 +1,36 @@
+{
+  "name": "elasticsearch-sanitize",
+  "version": "1.0.0",
+  "description": "Elastic Search String Sanitizer for Node",
+  "main": "index.js",
+  "scripts": {
+    "run-coverage": "istanbul cover --include-all-sources _mocha -- --compilers js:babel/register",
+    "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --lines 100 --functions 100",
+    "cover": "npm run run-coverage && npm run check-coverage",
+    "lint": "eslint --ignore-path .gitignore .",
+    "test": "npm run lint && mocha --compilers js:babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanetix/node-elasticsearch-sanitize.git"
+  },
+  "keywords": [
+    "ElasticSearch",
+    "Query",
+    "Sanitize",
+    "Node"
+  ],
+  "author": "Kyla Farrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lanetix/node-elasticsearch-sanitize/issues"
+  },
+  "homepage": "https://github.com/lanetix/node-elasticsearch-sanitize#readme",
+  "devDependencies": {
+    "babel": "^5.6.3",
+    "eslint": "^0.23.0",
+    "eslint-plugin-nodeca": "^1.0.3",
+    "istanbul": "^0.3.15",
+    "mocha": "^2.2.5"
+  }
+}
