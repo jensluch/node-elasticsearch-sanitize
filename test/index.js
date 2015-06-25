@@ -1,6 +1,6 @@
 'use strict';
 
-var sanitize = require('../'),
+let sanitize = require('../'),
   assert = require('assert');
 
 describe('Sanitize Query', () => {
