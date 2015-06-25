@@ -12,9 +12,7 @@ Returns a sanitized string which can be safely used in an ElasticSearch query_st
 Installation
 ------------
 
-```bash
-npm install --save elasticsearch-sanitize
-```
+[![npm install --save elasticsearch-sanitize](https://nodei.co/npm/elasticsearch-sanitize.png)](https://npmjs.org/package/elasticsearch-sanitize)
 
 Usage
 -----
