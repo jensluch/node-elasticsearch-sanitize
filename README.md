@@ -7,7 +7,7 @@ node-elasticsearch-sanitize
 
 Accepts an arbitrary string as input and escapes the ElasticSearch reserved characters:
 ```
-+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ / AND OR NOT
++ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ / AND OR NOT space
 ```
 Returns a sanitized string which can be safely used in an ElasticSearch query_string query.
 
@@ -21,5 +21,5 @@ console.log(escapeElastic(myString))
 ```
 And it will return:  
 ```
-\A\N\D there\! are\? \(lots of\) char\*cters 2 \^escape\!
+\A\N\D\ there\!\ are\?\ \(lots\ of\)\ char\*cters\ 2\ \^escape\!
 ```
