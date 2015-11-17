@@ -2,7 +2,7 @@
 
 module.exports = function (query) {
   return query
-    .replace(/[\*\+\-=~><\"\?^\${}\(\)\:\!\/[\]\\]/g, '\\$&') // replace single character special characters
+    .replace(/[\*\+\-=~><\"\?^\${}\(\)\:\!\/[\]\\\s]/g, '\\$&') // replace single character special characters
     .replace(/\|\|/g, '\\||') // replace ||
     .replace(/\&\&/g, '\\&&') // replace &&
     .replace(/AND/g, '\\A\\N\\D') // replace AND
