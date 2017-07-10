@@ -3,9 +3,14 @@
 module.exports = function (query) {
   return query
     .replace(/[\*\+\-=~><\"\?^\${}\(\)\:\!\/[\]\\\s]/g, '\\$&') // replace single character special characters
+    .replace(/[><]/g, '') // < and > can’t be escaped at all.
     .replace(/\|\|/g, '\\||') // replace ||
     .replace(/\&\&/g, '\\&&') // replace &&
-    .replace(/AND/g, '\\A\\N\\D') // replace AND
-    .replace(/OR/g, '\\O\\R') // replace OR
-    .replace(/NOT/g, '\\N\\O\\T'); // replace NOT
+      .replace(/(^|\s)AND(\s|$|\\)/g, specSymbToLower) // replace AND
+      .replace(/(^|\s)OR(\s|$|\\)/g, specSymbToLower) // replace OR
+      .replace(/(^|\s)NOT(\s|$|\\)/g, specSymbToLower); // replace NOT
+
+  function specSymbToLower(matched) {
+      return matched.toLowerCase();
+  }
 };

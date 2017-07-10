@@ -6,16 +6,27 @@ let sanitize = require('../'),
 describe('Sanitize Query', () => {
   it('escapes all special characters', () => {
     let result = sanitize('+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \\ / AND OR NOT');
-    assert.equal(result, '\\+\\ \\-\\ \\=\\ \\&&\\ \\||\\ \\>\\ \\<\\ \\!\\ \\(\\ \\)\\ \\{\\ \\}\\ \\[\\ \\]\\ \\^\\ \\"\\ \\~\\ \\*\\ \\?\\ \\:\\ \\\\\\ \\/\\ \\A\\N\\D\\ \\O\\R\\ \\N\\O\\T');
+    assert.equal(result, '\\+\\ \\-\\ \\=\\ \\&&\\ \\||\\ \\\\ \\\\ \\!\\ \\(\\ \\)\\ \\{\\ \\}\\ \\[\\ \\]\\ \\^\\ \\"\\ \\~\\ \\*\\ \\?\\ \\:\\ \\\\\\ \\/\\ and\\ or\\ not');
   });
 
   it('escapes all characters in context', () => {
     let result = sanitize('AND there! are? (lots of) char*cters 2 ^escape!');
-    assert.equal(result, '\\A\\N\\D\\ there\\!\\ are\\?\\ \\(lots\\ of\\)\\ char\\*cters\\ 2\\ \\^escape\\!');
+    assert.equal(result, 'and\\ there\\!\\ are\\?\\ \\(lots\\ of\\)\\ char\\*cters\\ 2\\ \\^escape\\!');
   });
 
   it('escapes repeated special characters', () => {
     let result = sanitize('&& || && || > < ! > < ! AND OR NOT NOT OR AND');
-    assert.equal(result, '\\&&\\ \\||\\ \\&&\\ \\||\\ \\>\\ \\<\\ \\!\\ \\>\\ \\<\\ \\!\\ \\A\\N\\D\\ \\O\\R\\ \\N\\O\\T\\ \\N\\O\\T\\ \\O\\R\\ \\A\\N\\D');
+    assert.equal(result, '\\&&\\ \\||\\ \\&&\\ \\||\\ \\\\ \\\\ \\!\\ \\\\ \\\\ \\!\\ and\\ or\\ not\\ not\\ or\\ and');
+  });
+
+  it('handles special chars inside words', () => {
+      let contributor = sanitize('CONTRIBUTOR');
+      assert.equal(contributor, 'CONTRIBUTOR');
+
+      let organize = sanitize('ORGANIZE');
+      assert.equal(organize, 'ORGANIZE');
+
+      let notify = sanitize(' NOTIFY');
+      assert.equal(notify, '\\ NOTIFY');
   });
 });
